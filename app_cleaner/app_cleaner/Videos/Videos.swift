@@ -17,12 +17,12 @@ class Videos: UIViewController {
     }
     
     func setupViews(){
-        self.setupNavigation(text: "Videos")
+        self.setupNavigation(text: "Videos", isPhotoDetail: false)
         setupCollection()
     }
     
     func setupCollection(){
-        let collect = self.setupCollectionExtension(isHeader: true)
+        let collect = self.setupCollectionExtension(isHeader: true, spacingItem: 0)
         collect.register(VideoCell.self, forCellWithReuseIdentifier: "cell")
         collect.register(VideoHeaderFooterClass.self,
                          forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,

@@ -19,11 +19,11 @@ class Photo: UIViewController {
         
     }
     func implementCode(){
-        self.setupNavigation(text: "Photo")
+        self.setupNavigation(text: "Photos", isPhotoDetail: false)
         setupCollection()
     }
     func setupCollection(){
-        let collect = self.setupCollectionExtension(isHeader: true)
+        let collect = self.setupCollectionExtension(isHeader: true, spacingItem: 0)
         collect.delegate = self
         collect.dataSource = self
         collect.register(PhotoCell.self, forCellWithReuseIdentifier: "cell")
@@ -53,7 +53,6 @@ extension Photo: UICollectionViewDelegate, UICollectionViewDataSource, UICollect
         var arrayCell = modelText.arrayTxtCell()
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
         cell.backgroundColor = FunctionAll.share.BackGroundColor(typeColor: .backgroundCell)
-        print(arrayCell[indexPath.section][indexPath.row])
         return cell
     }
  
@@ -81,6 +80,12 @@ extension Photo: UICollectionViewDelegate, UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (self.view.bounds.width - 60) / 2, height: 150)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let arrayPhotoVC = [PhotoDetailVC(), PhotoDetailVC(), PhotoDetailVC(), PhotoDetailVC()]
+        let scr = arrayPhotoVC[indexPath.row]
+        self.navigationController?.pushViewController(scr, animated: true)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

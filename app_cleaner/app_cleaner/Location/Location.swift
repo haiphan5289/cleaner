@@ -17,12 +17,12 @@ class Location: UIViewController {
     }
     
     func setupViews(){
-        self.setupNavigation(text: "Location")
+        self.setupNavigation(text: "Location", isPhotoDetail: false)
         setupCollection()
     }
     
     func setupCollection(){
-        let collect = self.setupCollectionExtension(isHeader: false)
+        let collect = self.setupCollectionExtension(isHeader: false, spacingItem: 0)
         collect.backgroundColor = FunctionAll.share.BackGroundColor(typeColor: .backgroundView)
         collect.delegate = self
         collect.dataSource = self

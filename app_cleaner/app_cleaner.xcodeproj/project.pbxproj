@@ -31,6 +31,8 @@
 		93FB150D2309852400E72A82 /* ContactsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB150C2309852400E72A82 /* ContactsHeader.swift */; };
 		93FB150F23098BB300E72A82 /* ContactsDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB150E23098BB300E72A82 /* ContactsDataCell.swift */; };
 		93FB151123098D1700E72A82 /* ContactsHandleDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB151023098D1700E72A82 /* ContactsHandleDataCell.swift */; };
+		93FB1514230AB03E00E72A82 /* PhotoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB1513230AB03E00E72A82 /* PhotoDetailVC.swift */; };
+		93FB1516230AE92D00E72A82 /* PhotoDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB1515230AE92D00E72A82 /* PhotoDetailCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		93FB150C2309852400E72A82 /* ContactsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsHeader.swift; sourceTree = "<group>"; };
 		93FB150E23098BB300E72A82 /* ContactsDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsDataCell.swift; sourceTree = "<group>"; };
 		93FB151023098D1700E72A82 /* ContactsHandleDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsHandleDataCell.swift; sourceTree = "<group>"; };
+		93FB1513230AB03E00E72A82 /* PhotoDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailVC.swift; sourceTree = "<group>"; };
+		93FB1515230AE92D00E72A82 /* PhotoDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 				9313820D2306FD65000D16B6 /* Photo.swift */,
 				93FB14F32309113E00E72A82 /* PhotoCell.swift */,
 				93FB14F12307BD1200E72A82 /* MyHeaderFooterClass.swift */,
+				93FB1512230AB01A00E72A82 /* ElementPhotos */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -180,6 +185,15 @@
 				93FB150C2309852400E72A82 /* ContactsHeader.swift */,
 			);
 			path = Contacts;
+			sourceTree = "<group>";
+		};
+		93FB1512230AB01A00E72A82 /* ElementPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				93FB1513230AB03E00E72A82 /* PhotoDetailVC.swift */,
+				93FB1515230AE92D00E72A82 /* PhotoDetailCell.swift */,
+			);
+			path = ElementPhotos;
 			sourceTree = "<group>";
 		};
 		F9331E67C5F90A038B7A0B54 /* Frameworks */ = {
@@ -305,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FB1514230AB03E00E72A82 /* PhotoDetailVC.swift in Sources */,
 				93FB150F23098BB300E72A82 /* ContactsDataCell.swift in Sources */,
 				931381FB2303266D000D16B6 /* Home.swift in Sources */,
 				93FB150D2309852400E72A82 /* ContactsHeader.swift in Sources */,
@@ -319,6 +334,7 @@
 				93FB15062309792000E72A82 /* Location.swift in Sources */,
 				931382052306EEBF000D16B6 /* HomeCell.swift in Sources */,
 				93FB150B23097E5900E72A82 /* Contacts.swift in Sources */,
+				93FB1516230AE92D00E72A82 /* PhotoDetailCell.swift in Sources */,
 				93FB14F42309113E00E72A82 /* PhotoCell.swift in Sources */,
 				93FB14FB23095BBC00E72A82 /* VideoCell.swift in Sources */,
 				9313821023070255000D16B6 /* Extension.swift in Sources */,

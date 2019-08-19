@@ -19,7 +19,7 @@ class Contacts: UIViewController {
     }
     
     func setupViews(){
-        self.setupNavigation(text: "Contacts")
+        self.setupNavigation(text: "Contacts", isPhotoDetail: false)
         setupViewData()
         setupHandleViewData()
     }
