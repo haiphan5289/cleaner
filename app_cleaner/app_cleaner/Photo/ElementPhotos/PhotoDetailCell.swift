@@ -9,13 +9,14 @@
 import UIKit
 
 protocol checkButtonDelegate {
-    func CheckButton(count: Int)
+    func CheckButton(count: Int, index: Int, isCheckRemove: Bool)
 }
 
 class PhotoDetailCell: BaseCell {
     var imgPhotoDetailCell: UIImageView!
     var bt: UIButton!
     var checkDelegate: checkButtonDelegate?
+    var indexIMG: Int!
     override func setupInitial() {
         super.setupInitial()
         self.layer.cornerRadius = 10
@@ -44,20 +45,25 @@ class PhotoDetailCell: BaseCell {
         }
     }
     
+    //hàm để check select & unselect để trả về dữ liệu
     @objc func handleSelect(sender: AnyObject){
+        var isRemove: Bool = true
+        guard let indexIMGPhoto = indexIMG else { return }
         var numberCount = 0
         if let button = sender as? UIButton {
             if button.isSelected {
+                isRemove = true
                 numberCount -= 1
                 button.isSelected = false
                 button.setImage(UIImage(named: "uncheck"), for: .normal)
-                checkDelegate?.CheckButton(count: numberCount)
+                checkDelegate?.CheckButton(count: numberCount, index: indexIMGPhoto, isCheckRemove: isRemove)
             }
             else {
+                isRemove = false
                 numberCount += 1
                 button.isSelected = true
                 button.setImage(UIImage(named: "check"), for: .normal)
-                checkDelegate?.CheckButton(count: numberCount)
+                checkDelegate?.CheckButton(count: numberCount, index: indexIMGPhoto, isCheckRemove: isRemove)
             }
         }
     }

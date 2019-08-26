@@ -52,6 +52,7 @@ class Home: UIViewController {
     }
     
     func setupViewTitle(){
+        //tao title large
         self.navigationController?.navigationBar.prefersLargeTitles = true
 //        self.view.addSubview(viewTitle)
 //        viewTitle.backgroundColor = UIColor.orange
@@ -62,11 +63,13 @@ class Home: UIViewController {
 //        viewTitle.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
 //        viewTitle.heightAnchor.constraint(equalToConstant: 120).isActive = true
 //
+        //setup style cho status bar
         UIApplication.shared.statusBarStyle = .lightContent
         let texttitle = UILabel()
         texttitle.text = modelText.textTitleHome
         texttitle.font = UIFont.boldSystemFont(ofSize: 30)
         texttitle.textColor = .white
+        //add text vào viewTittle
         viewTitle.addSubview(texttitle)
 
 //        texttitle.translatesAutoresizingMaskIntoConstraints = false
@@ -239,7 +242,7 @@ extension Home: UICollectionViewDelegate, UICollectionViewDataSource, UICollecti
         return CGSize(width: (self.view.bounds.width - 60) / 2, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var arrayVC = [Photo(), Videos(), Contacts(), Location()]
+        var arrayVC = [Photo(), Videos(), ContactsVC(), Location()]
         let scr = arrayVC[indexPath.row]
         self.navigationController?.pushViewController(scr, animated: true)
     }

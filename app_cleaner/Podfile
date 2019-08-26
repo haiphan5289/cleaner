@@ -7,5 +7,7 @@ target 'app_cleaner' do
 
   # Pods for app_cleaner
 pod 'SnapKit'
+pod 'RxSwift'
+pod 'RxCocoa'
 
 end

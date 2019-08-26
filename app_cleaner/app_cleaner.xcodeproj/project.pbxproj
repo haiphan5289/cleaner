@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5769739BD0BE5DB1D47D4A23 /* Pods_app_cleaner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32221CC70ED30D742BE47011 /* Pods_app_cleaner.framework */; };
+		9300E81F23114F67002A35C3 /* AllContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9300E81E23114F67002A35C3 /* AllContacts.swift */; };
 		931381E9230325C1000D16B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931381E8230325C1000D16B6 /* AppDelegate.swift */; };
 		931381EE230325C1000D16B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931381EC230325C1000D16B6 /* Main.storyboard */; };
 		931381F0230325C6000D16B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931381EF230325C6000D16B6 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		213797D3CCF9523CCED4DD14 /* Pods-app_cleaner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app_cleaner.debug.xcconfig"; path = "Target Support Files/Pods-app_cleaner/Pods-app_cleaner.debug.xcconfig"; sourceTree = "<group>"; };
 		32221CC70ED30D742BE47011 /* Pods_app_cleaner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app_cleaner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7A1AD47A7C2841BCDD29C7 /* Pods-app_cleaner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app_cleaner.release.xcconfig"; path = "Target Support Files/Pods-app_cleaner/Pods-app_cleaner.release.xcconfig"; sourceTree = "<group>"; };
+		9300E81E23114F67002A35C3 /* AllContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllContacts.swift; sourceTree = "<group>"; };
 		931381E5230325C1000D16B6 /* app_cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app_cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		931381E8230325C1000D16B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		931381ED230325C1000D16B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 				5F7A1AD47A7C2841BCDD29C7 /* Pods-app_cleaner.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9300E81D23114F2C002A35C3 /* DetailContacts */ = {
+			isa = PBXGroup;
+			children = (
+				9300E81E23114F67002A35C3 /* AllContacts.swift */,
+			);
+			path = DetailContacts;
 			sourceTree = "<group>";
 		};
 		931381DC230325C1000D16B6 = {
@@ -183,6 +193,7 @@
 				93FB150E23098BB300E72A82 /* ContactsDataCell.swift */,
 				93FB151023098D1700E72A82 /* ContactsHandleDataCell.swift */,
 				93FB150C2309852400E72A82 /* ContactsHeader.swift */,
+				9300E81D23114F2C002A35C3 /* DetailContacts */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -335,6 +346,7 @@
 				931382052306EEBF000D16B6 /* HomeCell.swift in Sources */,
 				93FB150B23097E5900E72A82 /* Contacts.swift in Sources */,
 				93FB1516230AE92D00E72A82 /* PhotoDetailCell.swift in Sources */,
+				9300E81F23114F67002A35C3 /* AllContacts.swift in Sources */,
 				93FB14F42309113E00E72A82 /* PhotoCell.swift in Sources */,
 				93FB14FB23095BBC00E72A82 /* VideoCell.swift in Sources */,
 				9313821023070255000D16B6 /* Extension.swift in Sources */,
@@ -490,6 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7VA7N3EEEN;
 				INFOPLIST_FILE = app_cleaner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7VA7N3EEEN;
 				INFOPLIST_FILE = app_cleaner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

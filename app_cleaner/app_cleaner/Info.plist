@@ -43,5 +43,7 @@
 	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow access</string>
+	<key>NSContactsUsageDescription</key>
+	<string>All contacts</string>
 </dict>
 </plist>

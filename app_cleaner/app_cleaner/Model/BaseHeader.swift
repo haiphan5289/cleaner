@@ -8,6 +8,7 @@
 
 import UIKit
 
+//tạo 1 cell base để các cell khác kế thùa đỡ vất vả
 class BaseHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)

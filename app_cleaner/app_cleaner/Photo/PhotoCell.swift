@@ -27,6 +27,7 @@ class PhotoCell: UICollectionViewCell {
         txtCell = UILabel()
         txtCell.backgroundColor = UIColor.green
         txtCell.textAlignment = .center
+        txtCell.font = UIFont.boldSystemFont(ofSize: 30)
         self.addSubview(txtCell)
         
         txtCell.snp.makeConstraints { (make) in

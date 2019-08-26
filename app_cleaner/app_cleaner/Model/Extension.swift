@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Photos
 
 
 extension UIViewController {
@@ -27,9 +27,22 @@ extension UIViewController {
         
         //Kiểm tra, nếu là photodetai thì hiển thị Right Button
         if isPhotoDetail {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: nil)
+//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: nil)
         }
+
     }
+    
+    //setup & Config clean button
+    func setupClearButton(title: String) -> UIButton{
+        let bt = UIButton(type: .system)
+        bt.setTitle(title, for: .normal)
+        //        btClean.addTarget(self, action: #selector(handleSelect), for: .touchUpInside)
+        self.view.addSubview(bt)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: bt)
+        return bt
+    }
+    
     func setupCollectionExtension(isHeader: Bool, spacingItem: CGFloat) -> UICollectionView{
 //        guard let size = self.navigationController?.navigationBar.frame else { return }
         let layout = UICollectionViewFlowLayout()
@@ -57,8 +70,54 @@ extension UIViewController {
         return collect
     }
     
+    //Setup & Config button Delete
+    func setupDeleteButton(textTitle: String) -> UIButton{
+        let btDelete: UIButton!
+        btDelete = UIButton(type: .system)
+        btDelete.setTitle(textTitle, for: .normal)
+        btDelete.setTitleColor(.white, for: .normal)
+        btDelete.layer.cornerRadius = 25
+        btDelete.clipsToBounds = true
+        btDelete.backgroundColor = FunctionAll.share.BackGroundColor(typeColor: .backgroudnNavigation)
+        btDelete.isHidden = true
+        self.view.addSubview(btDelete)
+        btDelete.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-50)
+            make.width.equalTo(200)
+            make.height.equalTo(50)
+        }
+        return btDelete
+    }
+
+    //lấy các dữ liệu hình ảnh
+    func FetchPhotos() -> Int{
+        let fetchOption = PHFetchOptions()
+//        fetchOption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+//        let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOption)
+        fetchOption.predicate = NSPredicate(format: "title = %@", "đn")
+        let fetchResult: PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOption)
+        if let first = fetchResult.firstObject {
+            print("Hai")
+            print(fetchResult.count)
+        }
+        return fetchResult.count
+    }
+    
+    //lấy các dữ liệu của album Favorites
+    func fetchFavorties(){
+        let fetchOption = PHFetchOptions()
+        fetchOption.predicate = NSPredicate(format: "title = %@", "đn")
+        let fetchResult: PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOption)
+        //Nếu tìm thấy
+        if let found = fetchResult.firstObject {
+            print("Một")
+        }
+    }
+    
 }
 extension UICollectionReusableView {
+    //setup & Config Header Label
     func setupHeader(isVideo: Bool) -> UILabel{
         let txtHeader = UILabel()
         txtHeader.font = UIFont.boldSystemFont(ofSize: 30)

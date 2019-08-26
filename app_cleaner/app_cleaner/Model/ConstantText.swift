@@ -9,6 +9,7 @@
 import UIKit
 
 class ModelText {
+    //Setup text trong 1 hàm
     public static let share = ModelText()
     let textTitleHome = "Cleaner"
     let imgSetting = "settings"
@@ -16,6 +17,7 @@ class ModelText {
     let percent = "%"
     let txtStorage = "Storage Available"
     let txtGB = "17.5 GB of 32GB"
+    let txtSearch = "Search Contact"
     
     func arrayTxtHeader(header1: String, header2: String) -> [String]{
         return [header1, header2]

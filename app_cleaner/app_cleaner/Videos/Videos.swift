@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Photos
+
 
 class Videos: UIViewController {
 
+    var btClean:UIButton!
+    var collect: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = FunctionAll.share.BackGroundColor(typeColor: .backgroundView)
@@ -19,10 +23,53 @@ class Videos: UIViewController {
     func setupViews(){
         self.setupNavigation(text: "Videos", isPhotoDetail: false)
         setupCollection()
+        FetchVideos()
+        
+    }
+
+    
+    //lấy video từ library
+    func FetchVideos(){
+        //khai báo biến Request và sort theo creationdate
+        let fetchoption = PHFetchOptions()
+        fetchoption.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        //fetch video
+        let fetchresult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.video, options: fetchoption)
+        if fetchresult.count > 0 {
+            self.FetchVideosAtIndex(0, fetchresult)
+        }
+
+    }
+    var videos: [AVPlayerItem] = [AVPlayerItem]()
+    //hầm để lấy tất cả dũ liệu videos
+    func FetchVideosAtIndex(_ index: Int, _ fetchResult: PHFetchResult<PHAsset>){
+        //khai báo biến request videos
+        
+        let requestOptions = PHVideoRequestOptions()
+        requestOptions.isNetworkAccessAllowed = true
+        requestOptions.deliveryMode = PHVideoRequestOptionsDeliveryMode.highQualityFormat
+        
+        PHImageManager.default().requestPlayerItem(forVideo: fetchResult.object(at: index), options: requestOptions) { (video, info) in
+            if let video = video {
+                // Add the returned image to your array
+                self.videos += [video]
+            }
+            
+            if index + 1 < fetchResult.count  {
+                self.FetchVideosAtIndex(index + 1, fetchResult)
+            } else {
+//                 Else you have completed creating your array
+                print("Completed array: \(self.videos.count)")
+                DispatchQueue.main.async {
+                    self.collect.reloadData()
+                }
+            }
+        }      
+
     }
     
     func setupCollection(){
-        let collect = self.setupCollectionExtension(isHeader: true, spacingItem: 0)
+        collect = self.setupCollectionExtension(isHeader: true, spacingItem: 0)
         collect.register(VideoCell.self, forCellWithReuseIdentifier: "cell")
         collect.register(VideoHeaderFooterClass.self,
                          forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -40,7 +87,7 @@ extension Videos: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 4
+            return self.videos.count
         }
         else {
             return 2

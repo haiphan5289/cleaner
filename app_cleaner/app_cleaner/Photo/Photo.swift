@@ -21,7 +21,20 @@ class Photo: UIViewController {
     func implementCode(){
         self.setupNavigation(text: "Photos", isPhotoDetail: false)
         setupCollection()
+        self.fetchFavorties()
     }
+    
+    func arrayDataPhotos() -> [Int]{
+        //array label
+        var arrayLabel: [Int] = [Int]()
+        let countPhotos = self.FetchPhotos()
+        arrayLabel.append(countPhotos)
+        arrayLabel.append(0)
+        arrayLabel.append(0)
+        arrayLabel.append(0)
+        return arrayLabel
+    }
+    
     func setupCollection(){
         let collect = self.setupCollectionExtension(isHeader: true, spacingItem: 0)
         collect.delegate = self
@@ -50,9 +63,17 @@ extension Photo: UICollectionViewDelegate, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //array text
         var arrayCell = modelText.arrayTxtCell()
+        var arrayLB = self.arrayDataPhotos()
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoCell
         cell.backgroundColor = FunctionAll.share.BackGroundColor(typeColor: .backgroundCell)
+        if indexPath.section == 0 {
+            cell.txtCell.text = String(arrayLB[indexPath.row])
+        }
+        else {
+            cell.txtCell.text = "Hai"
+        }
         return cell
     }
  

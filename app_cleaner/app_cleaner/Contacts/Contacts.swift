@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Contacts: UIViewController {
+class ContactsVC: UIViewController {
 
     var collectData: UICollectionView!
     var collectHandleData: UICollectionView!
@@ -64,7 +64,7 @@ class Contacts: UIViewController {
     }
 
 }
-extension Contacts: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ContactsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == collectData {
             return 1
@@ -107,6 +107,14 @@ extension Contacts: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             return header
         default:
              assert(false, "Unexpected element kind")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == collectData {
+            let arrayVC = [AllContacts(), AllContacts()]
+            let src = arrayVC[indexPath.row]
+            self.navigationController?.pushViewController(src, animated: true)
         }
     }
     
